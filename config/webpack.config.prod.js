@@ -157,6 +157,12 @@ module.exports = {
               'style-loader',
               'css-loader',
               'resolve-url-loader',
+              {
+                loader: 'postcss-loader',
+                options: {
+                  plugins: () => [autoprefixer()],
+                },
+              },
               'sass-loader?sourceMap',
             ],
           },
