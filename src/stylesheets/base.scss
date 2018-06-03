@@ -8,6 +8,10 @@ body {
   font-family: 'Inconsolata', sans-serif;
   font-size: $base-font-size;
   font-weight: normal;
+
+  @include breakpoint-before(small) {
+    font-size: $base-font-size-mobile;
+  }
 }
 
 h1 {

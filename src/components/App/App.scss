@@ -1,4 +1,7 @@
-@import '../../stylesheets/base';
+@import '../../stylesheets/utilities';
+
+$layout-margin-top: rem(90px);
+$layout-margin-sides: rem(60px);
 
 .Page {
   display: flex;
@@ -9,10 +12,10 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: 90px 60px;
+  margin: $layout-margin-top $layout-margin-sides;
 
   @include breakpoint-before(small) {
-    margin: 90px spacing(loose);
+    margin: $layout-margin-top spacing(loose) spacing(loose);
   }
 }
 

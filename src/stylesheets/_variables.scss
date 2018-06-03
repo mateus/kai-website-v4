@@ -1,15 +1,16 @@
-$base-font-size: 14px;
+$base-font-size: 16px;
+$base-font-size-mobile: 13px;
 $unit: 6px;
 
 $spacings: (
   tight: $unit,
   base: $unit * 2,
   loose: $unit * 4,
-  extra-loose: $unit * 6
+  extra-loose: $unit * 6,
 );
 
 $breakpoints: (
   small: 767px,
   medium: 992px,
-  large: 1200px
+  large: 1200px,
 );
