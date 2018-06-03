@@ -1,10 +1,10 @@
-### @kaigenji Website Version 4
+@kaigenji Website Version 4
 
-#### Getting started
+## Getting started
 
 ### `yarn install`
 ### `yarn start`
 
-#### Running tests
+## Running tests
 
 ### `yarn test`
