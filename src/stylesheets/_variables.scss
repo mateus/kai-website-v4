@@ -14,3 +14,15 @@ $breakpoints: (
   medium: 992px,
   large: 1200px,
 );
+
+$border-radius-data: (
+  base: 3px,
+  large: 6px,
+);
+
+$box-shadow-data: (
+  base: (
+    0 10px 20px 0 rgba(0, 0, 0, 0.04),
+    0 1px 2px 0 rgba(0, 0, 0, 0.15),
+  ),
+);

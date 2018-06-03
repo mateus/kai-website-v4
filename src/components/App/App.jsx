@@ -37,7 +37,82 @@ class App extends Component {
               </ul>
             </div>
           </div>
-          <div className="LayoutItem">SLIDER</div>
+          <div className="LayoutItem">
+            <div className="Slider">
+              <div className="SliderItem">
+                <div className="SliderImageWrapper">
+                  <span
+                    className="SliderImage"
+                    style={{
+                      backgroundImage:
+                        "url('https://placeimg.com/640/480/animals')",
+                    }}
+                  />
+                </div>
+                <p className="SliderImageTitle">Image title</p>
+              </div>
+              <div className="SliderItem">
+                <div className="SliderImageWrapper">
+                  <span
+                    className="SliderImage"
+                    style={{
+                      backgroundImage:
+                        "url('https://placeimg.com/640/480/nature')",
+                    }}
+                  />
+                </div>
+                <p className="SliderImageTitle">Image title</p>
+              </div>
+              <div className="SliderItem">
+                <div className="SliderImageWrapper">
+                  <span
+                    className="SliderImage"
+                    style={{
+                      backgroundImage:
+                        "url('https://placeimg.com/640/480/people')",
+                    }}
+                  />
+                </div>
+                <p className="SliderImageTitle">Image title</p>
+              </div>
+              <div className="SliderItem">
+                <div className="SliderImageWrapper">
+                  <span
+                    className="SliderImage"
+                    style={{
+                      backgroundImage:
+                        "url('https://placeimg.com/640/480/arch')",
+                    }}
+                  />
+                </div>
+                <p className="SliderImageTitle">Image title</p>
+              </div>
+              <div className="SliderItem">
+                <div className="SliderImageWrapper">
+                  <span
+                    className="SliderImage"
+                    style={{
+                      backgroundImage:
+                        "url('https://placeimg.com/640/480/tech')",
+                    }}
+                  />
+                </div>
+                <p className="SliderImageTitle">Image title</p>
+              </div>
+              <div className="SliderItem">
+                <div className="SliderImageWrapper">
+                  <span
+                    className="SliderImage"
+                    style={{
+                      backgroundImage:
+                        "url('https://placeimg.com/640/480/grayscale')",
+                    }}
+                  />
+                </div>
+                <p className="SliderImageTitle">Image title</p>
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     );

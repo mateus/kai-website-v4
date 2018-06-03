@@ -13,6 +13,24 @@
   }
 }
 
+@function border-radius($variant: base) {
+  @if map-has-key($border-radius-data, $variant) {
+    @return map-get($border-radius-data, $variant);
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$border-radius-data}`. "
+        + "Please make sure it is defined in `$border-radius-data` map.";
+  }
+}
+
+@function box-shadow($variant: base) {
+  @if map-has-key($box-shadow-data, $variant) {
+    @return map-get($box-shadow-data, $variant);
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$box-shadow-data}`. "
+        + "Please make sure it is defined in `$box-shadow-data` map.";
+  }
+}
+
 @mixin breakpoint-after($breakpoint) {
   @if map-has-key($breakpoints, $breakpoint) {
     @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {

@@ -1,7 +1,6 @@
 @import '../../stylesheets/utilities';
 
-$layout-margin-top: rem(90px);
-$layout-margin-sides: rem(60px);
+$layout-margin: rem(60px);
 
 .Page {
   display: flex;
@@ -12,19 +11,21 @@ $layout-margin-sides: rem(60px);
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: $layout-margin-top $layout-margin-sides;
+  margin: $layout-margin;
 
   @include breakpoint-before(small) {
-    margin: $layout-margin-top spacing(loose) spacing(loose);
+    margin: $layout-margin spacing(loose) spacing(loose);
   }
 }
 
 .LayoutItem {
   flex: 0 0 auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .LayoutItem--center {
-  align-items: center;
+  justify-content: center;
 }
 
 .LayoutItem--fill {
@@ -67,4 +68,127 @@ $layout-margin-sides: rem(60px);
   max-width: 700px;
   font-size: rem(24px);
   line-height: rem(36px);
+}
+
+$slider-image-height: 84px;
+$slider-gap: 1px;
+$slider-gap-mobile: 3px;
+$slider-row-items-amount-large-screen: 6;
+$slider-row-items-amount-medium-screen: 3;
+$slider-row-items-amount-small-screen: 2;
+
+.Slider {
+  margin-top: spacing(extra-loose);
+
+  // Fallback from display grid lack of support
+  column-count: $slider-row-items-amount-large-screen;
+  column-gap: $slider-gap;
+
+  @supports (display: grid) {
+    display: grid;
+    grid-template-columns: repeat($slider-row-items-amount-large-screen, 1fr);
+    grid-gap: $slider-gap;
+  }
+
+  @include breakpoint-before(medium) {
+    column-count: $slider-row-items-amount-medium-screen;
+    column-gap: $slider-gap-mobile;
+
+    @supports (display: grid) {
+      grid-template-columns: repeat(
+        $slider-row-items-amount-medium-screen,
+        1fr
+      );
+      grid-gap: $slider-gap-mobile;
+    }
+  }
+
+  @include breakpoint-before(small) {
+    column-count: $slider-row-items-amount-small-screen;
+
+    @supports (display: grid) {
+      grid-template-columns: repeat($slider-row-items-amount-small-screen, 1fr);
+    }
+  }
+}
+
+.SliderItem {
+  cursor: pointer;
+
+  &:hover {
+    z-index: 2;
+
+    .SliderImage {
+      transform: scale(1.05);
+    }
+  }
+
+  @include breakpoint-before(small) {
+    &:first-child > .SliderImage {
+      border-top-left-radius: border-radius(large);
+    }
+    &:nth-child(2) > .SliderImage {
+      border-top-right-radius: border-radius(large);
+    }
+    &:nth-last-child(2) > .SliderImage {
+      border-bottom-left-radius: border-radius(large);
+    }
+    &:last-child > .SliderImage {
+      border-bottom-right-radius: border-radius(large);
+    }
+  }
+
+  @include breakpoint-before(medium) {
+    &:first-child > .SliderImage {
+      border-top-left-radius: border-radius(large);
+    }
+    &:nth-child(3) > .SliderImage {
+      border-top-right-radius: border-radius(large);
+    }
+    &:nth-last-child(3) > .SliderImage {
+      border-bottom-left-radius: border-radius(large);
+    }
+    &:last-child > .SliderImage {
+      border-bottom-right-radius: border-radius(large);
+    }
+  }
+
+  @include breakpoint-after(medium) {
+    &:first-child > .SliderImage {
+      border-top-left-radius: border-radius(large);
+      border-bottom-left-radius: border-radius(large);
+    }
+    &:last-child > .SliderImage {
+      border-top-right-radius: border-radius(large);
+      border-bottom-right-radius: border-radius(large);
+    }
+  }
+}
+
+.SliderImageWrapper {
+  overflow: hidden;
+}
+
+.SliderImage {
+  display: block;
+  border-radius: border-radius();
+  background-color: #f0f0f0;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  box-shadow: box-shadow();
+  height: $slider-image-height;
+  transform-origin: center;
+  transform: scale(1);
+  transition: transform 150ms ease-in-out;
+}
+
+.SliderImageTitle {
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: spacing(loose);
+
+  @include breakpoint-before(medium) {
+    display: none;
+  }
 }
