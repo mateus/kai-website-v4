@@ -9,7 +9,7 @@ class App extends Component {
           <div className="LayoutItem LayoutItem--fill LayoutItem--center">
             <header>
               <h1 className="Title">
-                <span role="img" aria-label="Wave emoji">
+                <span className="TitleEmoji" role="img" aria-label="Wave emoji">
                   👋
                 </span>
                 I'm Kai
