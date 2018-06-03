@@ -45,26 +45,33 @@ class App extends Component {
                   {
                     url: undercityAlbum.thumbnail.src,
                     title: 'Undercity',
+                    description:
+                      'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
                   },
                   {
                     url: 'https://placeimg.com/640/480/tech',
                     title: 'Urban exploration',
+                    description: 'description',
                   },
                   {
                     url: 'https://placeimg.com/640/480/arch',
                     title: 'Canada & PNW ‘17',
+                    description: 'description',
                   },
                   {
                     url: 'https://placeimg.com/640/480/people',
                     title: 'Mt. Shasta ‘18',
+                    description: 'description',
                   },
                   {
                     url: 'https://placeimg.com/640/480/nature',
                     title: '春休み',
+                    description: 'description',
                   },
                   {
                     url: 'https://placeimg.com/640/480/grayscale',
                     title: 'Miscellaneous',
+                    description: 'description',
                   },
                 ]}
               />

@@ -5,7 +5,7 @@ import './HomeHeader.scss';
 class HomeHeader extends Component {
   render() {
     return (
-      <div>
+      <div className="HomeHeader">
         <header>
           <h1 className="HomeHeader__Title">
             <span

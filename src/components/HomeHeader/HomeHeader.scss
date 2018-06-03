@@ -1,5 +1,9 @@
 @import '../../stylesheets/utilities';
 
+.HomeHeader {
+  z-index: z-index(base);
+}
+
 .HomeHeader__Content {
   display: flex;
   margin-top: spacing();

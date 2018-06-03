@@ -17,6 +17,14 @@ $breakpoints: (
 
 $durations: (
   base: 150ms,
+  long: 400ms,
+);
+
+$z-index-data: (
+  behind: 0,
+  base: 1,
+  front: 2,
+  top: 3,
 );
 
 $border-radius-data: (

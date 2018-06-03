@@ -1,5 +1,14 @@
 @import 'variables';
 
+@function z-index($layer: base) {
+  @if map-has-key($z-index-data, $layer) {
+    @return map-get($z-index-data, $layer);
+  } @else {
+    @error "Unfortunately, no value could be retrieved from `#{$z-index-data}`. "
+        + "Please make sure it is defined in `$z-index-data` map.";
+  }
+}
+
 @function rem($target, $context: $base-font-size) {
   @return ($target / $context) * 1rem;
 }
