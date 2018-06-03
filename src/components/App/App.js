@@ -8,9 +8,7 @@ class App extends Component {
         <div className="Layout">
           <div className="LayoutItem LayoutItem--fill LayoutItem--center">
             <header>
-              <h1 className="Title">
-                <span role="img" aria-label="Wave emoji">👋</span> I'm Kai
-              </h1>
+              <h1 className="Title"><span role="img" aria-label="Wave emoji">👋</span> I'm Kai</h1>
             </header>
             <div className="Content">
               <p className="Quote">
