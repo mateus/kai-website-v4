@@ -1,0 +1,32 @@
+@import 'reset';
+@import 'fonts';
+@import 'variables';
+@import 'utilities';
+
+html,
+body {
+  font-family: 'Inconsolata', sans-serif;
+  font-size: $base-font-size;
+  font-weight: normal;
+}
+
+h1 {
+  font-size: rem(58px);
+  font-weight: bold;
+}
+
+p {
+  font-size: rem(14px);
+  font-weight: normal;
+}
+
+a {
+  color: initial;
+  text-decoration: none;
+
+  &:hover,
+  &:focus,
+  &:visited {
+    text-decoration: underline;
+  }
+}

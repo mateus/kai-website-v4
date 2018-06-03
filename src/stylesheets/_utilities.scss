@@ -1,0 +1,37 @@
+@function rem($target, $context: $base-font-size) {
+  @return ($target / $context) * 1rem;
+}
+
+@function spacing($spacing: base) {
+  @if map-has-key($spacings, $spacing) {
+    @return map-get($spacings, $spacing);
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$spacings}`. "
+        + "Please make sure it is defined in `$spacings` map.";
+  }
+}
+
+@mixin breakpoint-after($breakpoint) { 
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: #{map-get($breakpoints, $breakpoint)}) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
+
+@mixin breakpoint-before($breakpoint) { 
+  @if map-has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: #{map-get($breakpoints, $breakpoint) - 1}) {
+      @content;
+    }
+  }
+  @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+        + "Please make sure it is defined in `$breakpoints` map.";
+  }
+}
