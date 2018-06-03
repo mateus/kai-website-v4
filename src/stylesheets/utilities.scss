@@ -8,8 +8,26 @@
   @if map-has-key($spacings, $spacing) {
     @return map-get($spacings, $spacing);
   } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$spacings}`. "
+    @error "Unfortunately, no value could be retrieved from `#{$spacings}`. "
         + "Please make sure it is defined in `$spacings` map.";
+  }
+}
+
+@function color($color) {
+  @if map-has-key($color-data, $color) {
+    @return map-get($color-data, $color);
+  } @else {
+    @error "Unfortunately, no value could be retrieved from `#{$color-data}`. "
+        + "Please make sure it is defined in `$color-data` map.";
+  }
+}
+
+@function duration($duration: base) {
+  @if map-has-key($durations, $duration) {
+    @return map-get($durations, $duration);
+  } @else {
+    @error "Unfortunately, no value could be retrieved from `#{$durations}`. "
+        + "Please make sure it is defined in `$durations` map.";
   }
 }
 
@@ -17,7 +35,7 @@
   @if map-has-key($border-radius-data, $variant) {
     @return map-get($border-radius-data, $variant);
   } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$border-radius-data}`. "
+    @error "Unfortunately, no value could be retrieved from `#{$border-radius-data}`. "
         + "Please make sure it is defined in `$border-radius-data` map.";
   }
 }
@@ -26,7 +44,7 @@
   @if map-has-key($box-shadow-data, $variant) {
     @return map-get($box-shadow-data, $variant);
   } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$box-shadow-data}`. "
+    @error "Unfortunately, no value could be retrieved from `#{$box-shadow-data}`. "
         + "Please make sure it is defined in `$box-shadow-data` map.";
   }
 }
@@ -37,7 +55,7 @@
       @content;
     }
   } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    @error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
         + "Please make sure it is defined in `$breakpoints` map.";
   }
 }
@@ -48,7 +66,7 @@
       @content;
     }
   } @else {
-    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
+    @error "Unfortunately, no value could be retrieved from `#{$breakpoint}`. "
         + "Please make sure it is defined in `$breakpoints` map.";
   }
 }

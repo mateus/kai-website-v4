@@ -15,6 +15,10 @@ $breakpoints: (
   large: 1200px,
 );
 
+$durations: (
+  base: 150ms,
+);
+
 $border-radius-data: (
   base: 3px,
   large: 6px,
@@ -25,4 +29,10 @@ $box-shadow-data: (
     0 10px 20px 0 rgba(0, 0, 0, 0.04),
     0 1px 2px 0 rgba(0, 0, 0, 0.15),
   ),
+);
+
+$color-data: (
+  sky: #dfe3e8,
+  sky-light: #f4f6f8,
+  white: #ffffff,
 );

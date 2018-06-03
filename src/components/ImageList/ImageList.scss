@@ -53,68 +53,64 @@ $imagelist-row-items-amount-small-screen: 2;
 
   &:hover {
     .ImageList__Image {
-      transform: scale(1.05);
+      border: 1px solid color(white);
     }
   }
 
   @include breakpoint-before(small) {
-    &:first-child > .ImageList__ImageWrapper {
+    &:first-child .ImageList__Image {
       border-top-left-radius: border-radius(large);
     }
-    &:nth-child(2) > .ImageList__ImageWrapper {
+    &:nth-child(2) .ImageList__Image {
       border-top-right-radius: border-radius(large);
     }
-    &:nth-last-child(2) > .ImageList__ImageWrapper {
+    &:nth-last-child(2) .ImageList__Image {
       border-bottom-left-radius: border-radius(large);
     }
-    &:last-child > .ImageList__ImageWrapper {
+    &:last-child .ImageList__Image {
       border-bottom-right-radius: border-radius(large);
     }
   }
 
   @include breakpoint-before(medium) {
-    &:first-child > .ImageList__ImageWrapper {
+    &:first-child .ImageList__Image {
       border-top-left-radius: border-radius(large);
     }
-    &:nth-child(3) > .ImageList__ImageWrapper {
+    &:nth-child(3) .ImageList__Image {
       border-top-right-radius: border-radius(large);
     }
-    &:nth-last-child(3) > .ImageList__ImageWrapper {
+    &:nth-last-child(3) .ImageList__Image {
       border-bottom-left-radius: border-radius(large);
     }
-    &:last-child > .ImageList__ImageWrapper {
+    &:last-child .ImageList__Image {
       border-bottom-right-radius: border-radius(large);
     }
   }
 
   @include breakpoint-after(medium) {
-    &:first-child > .ImageList__ImageWrapper {
+    &:first-child .ImageList__Image {
       border-top-left-radius: border-radius(large);
       border-bottom-left-radius: border-radius(large);
     }
-    &:last-child > .ImageList__ImageWrapper {
+    &:last-child .ImageList__Image {
       border-top-right-radius: border-radius(large);
       border-bottom-right-radius: border-radius(large);
     }
   }
 }
 
-.ImageList__ImageWrapper {
-  overflow: hidden;
-  box-shadow: box-shadow();
-  border-radius: border-radius();
-}
-
 .ImageList__Image {
   display: block;
-  background-color: #f0f0f0;
+  background-color: color(sky-light);
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;
+  background-clip: content-box, padding-box;
+  box-shadow: box-shadow();
+  border-radius: border-radius();
+  border: 1px solid transparent;
   height: $imagelist-image-height;
-  transform-origin: center;
-  transform: scale(1);
-  transition: transform 150ms ease-in-out;
+  transition: border duration() ease-in-out;
 }
 
 .ImageList__Title {

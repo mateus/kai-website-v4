@@ -12,14 +12,12 @@ class ImageList extends Component {
           const { url, title } = image;
           return (
             <div key={index} className="ImageList__Item">
-              <div className="ImageList__ImageWrapper">
-                <span
-                  className="ImageList__Image"
-                  style={{
-                    backgroundImage: `url(${url})`,
-                  }}
-                />
-              </div>
+              <div
+                className="ImageList__Image"
+                style={{
+                  backgroundImage: `url(${url})`,
+                }}
+              />
               <p className="ImageList__Title">{title}</p>
             </div>
           );
