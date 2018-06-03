@@ -50,7 +50,9 @@
     "test": "node scripts/test.js --env=jsdom"
   },
   "devDependencies": {
+    "eslint-plugin-prettier": "^2.6.0",
     "node-sass": "^4.9.0",
+    "prettier": "1.13.4",
     "resolve-url-loader": "^2.3.0",
     "sass-loader": "^7.0.2"
   },
