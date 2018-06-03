@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+
+import { ImageList } from '../';
 import './App.scss';
 
 class App extends Component {
@@ -38,80 +40,31 @@ class App extends Component {
             </div>
           </div>
           <div className="LayoutItem">
-            <div className="Slider">
-              <div className="SliderItem">
-                <div className="SliderImageWrapper">
-                  <span
-                    className="SliderImage"
-                    style={{
-                      backgroundImage:
-                        "url('https://placeimg.com/640/480/animals')",
-                    }}
-                  />
-                </div>
-                <p className="SliderImageTitle">Image title</p>
-              </div>
-              <div className="SliderItem">
-                <div className="SliderImageWrapper">
-                  <span
-                    className="SliderImage"
-                    style={{
-                      backgroundImage:
-                        "url('https://placeimg.com/640/480/nature')",
-                    }}
-                  />
-                </div>
-                <p className="SliderImageTitle">Image title</p>
-              </div>
-              <div className="SliderItem">
-                <div className="SliderImageWrapper">
-                  <span
-                    className="SliderImage"
-                    style={{
-                      backgroundImage:
-                        "url('https://placeimg.com/640/480/people')",
-                    }}
-                  />
-                </div>
-                <p className="SliderImageTitle">Image title</p>
-              </div>
-              <div className="SliderItem">
-                <div className="SliderImageWrapper">
-                  <span
-                    className="SliderImage"
-                    style={{
-                      backgroundImage:
-                        "url('https://placeimg.com/640/480/arch')",
-                    }}
-                  />
-                </div>
-                <p className="SliderImageTitle">Image title</p>
-              </div>
-              <div className="SliderItem">
-                <div className="SliderImageWrapper">
-                  <span
-                    className="SliderImage"
-                    style={{
-                      backgroundImage:
-                        "url('https://placeimg.com/640/480/tech')",
-                    }}
-                  />
-                </div>
-                <p className="SliderImageTitle">Image title</p>
-              </div>
-              <div className="SliderItem">
-                <div className="SliderImageWrapper">
-                  <span
-                    className="SliderImage"
-                    style={{
-                      backgroundImage:
-                        "url('https://placeimg.com/640/480/grayscale')",
-                    }}
-                  />
-                </div>
-                <p className="SliderImageTitle">Image title</p>
-              </div>
-            </div>
+            <ImageList
+              images={[
+                {
+                  url: 'https://placeimg.com/640/480/animals',
+                  title: 'Undercity',
+                },
+                {
+                  url: 'https://placeimg.com/640/480/tech',
+                  title: 'Urban exploration',
+                },
+                {
+                  url: 'https://placeimg.com/640/480/arch',
+                  title: 'Canada & PNW ‘17',
+                },
+                {
+                  url: 'https://placeimg.com/640/480/people',
+                  title: 'Mt. Shasta ‘18',
+                },
+                { url: 'https://placeimg.com/640/480/nature', title: '春休み' },
+                {
+                  url: 'https://placeimg.com/640/480/grayscale',
+                  title: 'Miscellaneous',
+                },
+              ]}
+            />
           </div>
         </div>
       </main>

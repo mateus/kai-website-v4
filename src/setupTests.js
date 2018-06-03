@@ -1,8 +1,9 @@
-import Enzyme from 'enzyme';
+import { configure } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import jsdom from 'jsdom';
 
-Enzyme.configure({ adapter: new Adapter() });
+configure({ adapter: new Adapter() });
 
-global.requestAnimationFrame = function(callback) {
-  setTimeout(callback, 0);
-};
+global.document = jsdom.jsdom('<!doctype html><html><body></body></html>');
+global.window = document.defaultView;
+global.navigator = window.navigator;

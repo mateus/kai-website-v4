@@ -29,6 +29,7 @@ ShallowWrapper {
                         >
                                 <span
                                         aria-label="Wave emoji"
+                                        className="TitleEmoji"
                                         role="img"
                                 >
                                         👋
@@ -71,7 +72,36 @@ ShallowWrapper {
         <div
                 className="LayoutItem"
         >
-                SLIDER
+                <ImageList
+                        images={
+                                Array [
+                                        Object {
+                                          "title": "Undercity",
+                                          "url": "https://placeimg.com/640/480/animals",
+                                        },
+                                        Object {
+                                          "title": "Urban exploration",
+                                          "url": "https://placeimg.com/640/480/tech",
+                                        },
+                                        Object {
+                                          "title": "Canada & PNW ‘17",
+                                          "url": "https://placeimg.com/640/480/arch",
+                                        },
+                                        Object {
+                                          "title": "Mt. Shasta ‘18",
+                                          "url": "https://placeimg.com/640/480/people",
+                                        },
+                                        Object {
+                                          "title": "春休み",
+                                          "url": "https://placeimg.com/640/480/nature",
+                                        },
+                                        Object {
+                                          "title": "Miscellaneous",
+                                          "url": "https://placeimg.com/640/480/grayscale",
+                                        },
+                                      ]
+                        }
+                />
         </div>
 </div>,
       "className": "Page",
@@ -92,6 +122,7 @@ ShallowWrapper {
                         >
                                     <span
                                                 aria-label="Wave emoji"
+                                                className="TitleEmoji"
                                                 role="img"
                                     >
                                                 👋
@@ -134,7 +165,36 @@ ShallowWrapper {
           <div
             className="LayoutItem"
 >
-            SLIDER
+            <ImageList
+                        images={
+                                    Array [
+                                                Object {
+                                                  "title": "Undercity",
+                                                  "url": "https://placeimg.com/640/480/animals",
+                                                },
+                                                Object {
+                                                  "title": "Urban exploration",
+                                                  "url": "https://placeimg.com/640/480/tech",
+                                                },
+                                                Object {
+                                                  "title": "Canada & PNW ‘17",
+                                                  "url": "https://placeimg.com/640/480/arch",
+                                                },
+                                                Object {
+                                                  "title": "Mt. Shasta ‘18",
+                                                  "url": "https://placeimg.com/640/480/people",
+                                                },
+                                                Object {
+                                                  "title": "春休み",
+                                                  "url": "https://placeimg.com/640/480/nature",
+                                                },
+                                                Object {
+                                                  "title": "Miscellaneous",
+                                                  "url": "https://placeimg.com/640/480/grayscale",
+                                                },
+                                              ]
+                        }
+            />
 </div>,
         ],
         "className": "Layout",
@@ -153,6 +213,7 @@ ShallowWrapper {
                 >
                                 <span
                                                 aria-label="Wave emoji"
+                                                className="TitleEmoji"
                                                 role="img"
                                 >
                                                 👋
@@ -206,6 +267,7 @@ ShallowWrapper {
 >
                   <span
                                     aria-label="Wave emoji"
+                                    className="TitleEmoji"
                                     role="img"
                   >
                                     👋
@@ -222,6 +284,7 @@ ShallowWrapper {
                   "children": Array [
                     <span
                       aria-label="Wave emoji"
+                      className="TitleEmoji"
                       role="img"
 >
                       👋
@@ -239,6 +302,7 @@ ShallowWrapper {
                     "props": Object {
                       "aria-label": "Wave emoji",
                       "children": "👋",
+                      "className": "TitleEmoji",
                       "role": "img",
                     },
                     "ref": null,
@@ -414,11 +478,75 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": "SLIDER",
+            "children": <ImageList
+              images={
+                            Array [
+                                          Object {
+                                            "title": "Undercity",
+                                            "url": "https://placeimg.com/640/480/animals",
+                                          },
+                                          Object {
+                                            "title": "Urban exploration",
+                                            "url": "https://placeimg.com/640/480/tech",
+                                          },
+                                          Object {
+                                            "title": "Canada & PNW ‘17",
+                                            "url": "https://placeimg.com/640/480/arch",
+                                          },
+                                          Object {
+                                            "title": "Mt. Shasta ‘18",
+                                            "url": "https://placeimg.com/640/480/people",
+                                          },
+                                          Object {
+                                            "title": "春休み",
+                                            "url": "https://placeimg.com/640/480/nature",
+                                          },
+                                          Object {
+                                            "title": "Miscellaneous",
+                                            "url": "https://placeimg.com/640/480/grayscale",
+                                          },
+                                        ]
+              }
+/>,
             "className": "LayoutItem",
           },
           "ref": null,
-          "rendered": "SLIDER",
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "class",
+            "props": Object {
+              "images": Array [
+                Object {
+                  "title": "Undercity",
+                  "url": "https://placeimg.com/640/480/animals",
+                },
+                Object {
+                  "title": "Urban exploration",
+                  "url": "https://placeimg.com/640/480/tech",
+                },
+                Object {
+                  "title": "Canada & PNW ‘17",
+                  "url": "https://placeimg.com/640/480/arch",
+                },
+                Object {
+                  "title": "Mt. Shasta ‘18",
+                  "url": "https://placeimg.com/640/480/people",
+                },
+                Object {
+                  "title": "春休み",
+                  "url": "https://placeimg.com/640/480/nature",
+                },
+                Object {
+                  "title": "Miscellaneous",
+                  "url": "https://placeimg.com/640/480/grayscale",
+                },
+              ],
+            },
+            "ref": null,
+            "rendered": null,
+            "type": [Function],
+          },
           "type": "div",
         },
       ],
@@ -444,6 +572,7 @@ ShallowWrapper {
                               >
                                         <span
                                                   aria-label="Wave emoji"
+                                                  className="TitleEmoji"
                                                   role="img"
                                         >
                                                   👋
@@ -486,7 +615,36 @@ ShallowWrapper {
           <div
                     className="LayoutItem"
           >
-                    SLIDER
+                    <ImageList
+                              images={
+                                        Array [
+                                                  Object {
+                                                    "title": "Undercity",
+                                                    "url": "https://placeimg.com/640/480/animals",
+                                                  },
+                                                  Object {
+                                                    "title": "Urban exploration",
+                                                    "url": "https://placeimg.com/640/480/tech",
+                                                  },
+                                                  Object {
+                                                    "title": "Canada & PNW ‘17",
+                                                    "url": "https://placeimg.com/640/480/arch",
+                                                  },
+                                                  Object {
+                                                    "title": "Mt. Shasta ‘18",
+                                                    "url": "https://placeimg.com/640/480/people",
+                                                  },
+                                                  Object {
+                                                    "title": "春休み",
+                                                    "url": "https://placeimg.com/640/480/nature",
+                                                  },
+                                                  Object {
+                                                    "title": "Miscellaneous",
+                                                    "url": "https://placeimg.com/640/480/grayscale",
+                                                  },
+                                                ]
+                              }
+                    />
           </div>
 </div>,
         "className": "Page",
@@ -507,6 +665,7 @@ ShallowWrapper {
                             >
                                           <span
                                                         aria-label="Wave emoji"
+                                                        className="TitleEmoji"
                                                         role="img"
                                           >
                                                         👋
@@ -549,7 +708,36 @@ ShallowWrapper {
             <div
               className="LayoutItem"
 >
-              SLIDER
+              <ImageList
+                            images={
+                                          Array [
+                                                        Object {
+                                                          "title": "Undercity",
+                                                          "url": "https://placeimg.com/640/480/animals",
+                                                        },
+                                                        Object {
+                                                          "title": "Urban exploration",
+                                                          "url": "https://placeimg.com/640/480/tech",
+                                                        },
+                                                        Object {
+                                                          "title": "Canada & PNW ‘17",
+                                                          "url": "https://placeimg.com/640/480/arch",
+                                                        },
+                                                        Object {
+                                                          "title": "Mt. Shasta ‘18",
+                                                          "url": "https://placeimg.com/640/480/people",
+                                                        },
+                                                        Object {
+                                                          "title": "春休み",
+                                                          "url": "https://placeimg.com/640/480/nature",
+                                                        },
+                                                        Object {
+                                                          "title": "Miscellaneous",
+                                                          "url": "https://placeimg.com/640/480/grayscale",
+                                                        },
+                                                      ]
+                            }
+              />
 </div>,
           ],
           "className": "Layout",
@@ -568,6 +756,7 @@ ShallowWrapper {
                   >
                                     <span
                                                       aria-label="Wave emoji"
+                                                      className="TitleEmoji"
                                                       role="img"
                                     >
                                                       👋
@@ -621,6 +810,7 @@ ShallowWrapper {
 >
                     <span
                                         aria-label="Wave emoji"
+                                        className="TitleEmoji"
                                         role="img"
                     >
                                         👋
@@ -637,6 +827,7 @@ ShallowWrapper {
                     "children": Array [
                       <span
                         aria-label="Wave emoji"
+                        className="TitleEmoji"
                         role="img"
 >
                         👋
@@ -654,6 +845,7 @@ ShallowWrapper {
                       "props": Object {
                         "aria-label": "Wave emoji",
                         "children": "👋",
+                        "className": "TitleEmoji",
                         "role": "img",
                       },
                       "ref": null,
@@ -829,11 +1021,75 @@ ShallowWrapper {
             "key": undefined,
             "nodeType": "host",
             "props": Object {
-              "children": "SLIDER",
+              "children": <ImageList
+                images={
+                                Array [
+                                                Object {
+                                                  "title": "Undercity",
+                                                  "url": "https://placeimg.com/640/480/animals",
+                                                },
+                                                Object {
+                                                  "title": "Urban exploration",
+                                                  "url": "https://placeimg.com/640/480/tech",
+                                                },
+                                                Object {
+                                                  "title": "Canada & PNW ‘17",
+                                                  "url": "https://placeimg.com/640/480/arch",
+                                                },
+                                                Object {
+                                                  "title": "Mt. Shasta ‘18",
+                                                  "url": "https://placeimg.com/640/480/people",
+                                                },
+                                                Object {
+                                                  "title": "春休み",
+                                                  "url": "https://placeimg.com/640/480/nature",
+                                                },
+                                                Object {
+                                                  "title": "Miscellaneous",
+                                                  "url": "https://placeimg.com/640/480/grayscale",
+                                                },
+                                              ]
+                }
+/>,
               "className": "LayoutItem",
             },
             "ref": null,
-            "rendered": "SLIDER",
+            "rendered": Object {
+              "instance": null,
+              "key": undefined,
+              "nodeType": "class",
+              "props": Object {
+                "images": Array [
+                  Object {
+                    "title": "Undercity",
+                    "url": "https://placeimg.com/640/480/animals",
+                  },
+                  Object {
+                    "title": "Urban exploration",
+                    "url": "https://placeimg.com/640/480/tech",
+                  },
+                  Object {
+                    "title": "Canada & PNW ‘17",
+                    "url": "https://placeimg.com/640/480/arch",
+                  },
+                  Object {
+                    "title": "Mt. Shasta ‘18",
+                    "url": "https://placeimg.com/640/480/people",
+                  },
+                  Object {
+                    "title": "春休み",
+                    "url": "https://placeimg.com/640/480/nature",
+                  },
+                  Object {
+                    "title": "Miscellaneous",
+                    "url": "https://placeimg.com/640/480/grayscale",
+                  },
+                ],
+              },
+              "ref": null,
+              "rendered": null,
+              "type": [Function],
+            },
             "type": "div",
           },
         ],
