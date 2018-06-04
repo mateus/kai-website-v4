@@ -76,8 +76,10 @@ class ImageList extends Component {
                   backgroundImage: `url(${url})`,
                 }}
               >
-                <h2>{title}</h2>
-                <p>{description}</p>
+                <h2 className="ImageList__PreviewTitle">{title}</h2>
+                <p className="ImageList__PreviewDescription">
+                  <mark>{description}</mark>
+                </p>
               </div>
             );
           })}

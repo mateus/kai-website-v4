@@ -9,7 +9,8 @@ $imagelist-row-items-amount-medium-screen: 3;
 $imagelist-row-items-amount-small-screen: 2;
 
 $layout-margin-sides: layout-margin();
-$layout-margin-top: rem(150px);
+$layout-margin-top: layout-margin();
+$layout-margin-bottom: rem(200px);
 
 .ImageList {
   position: relative;
@@ -61,7 +62,7 @@ $layout-margin-top: rem(150px);
 
 .ImageList--autoFit {
   @include breakpoint-before(small) {
-    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
   }
 
   .ImageList__Item {
@@ -265,6 +266,10 @@ $layout-margin-top: rem(150px);
 
 .ImageList__Preview {
   position: absolute;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   opacity: 0;
   background-size: cover;
   background-position: center center;
@@ -273,15 +278,40 @@ $layout-margin-top: rem(150px);
   width: 100%;
   padding: $layout-margin-sides;
   padding-top: $layout-margin-top;
+  padding-bottom: $layout-margin-bottom;
   color: color(white);
-  transition: opacity duration(long) ease-in;
+  transition: opacity duration(long) ease-in-out;
 
   @include breakpoint-before(small) {
     padding: spacing(loose);
     padding-top: $layout-margin-top;
+    padding-bottom: $layout-margin-bottom;
   }
 }
 
 .ImageList__Preview--show {
   opacity: 1;
+}
+
+.ImageList__PreviewTitle {
+  font-family: 'TiemposHeadline';
+  font-weight: 600;
+  font-size: rem(72px);
+  letter-spacing: -2px;
+  color: color(white);
+  text-align: right;
+  background-blend-mode: exclusion;
+  mix-blend-mode: exclusion;
+  transform: rotate(-180deg);
+
+  @include breakpoint-before(small) {
+    font-size: rem(46px);
+  }
+}
+
+.ImageList__PreviewDescription {
+  margin-top: spacing();
+  font-size: rem(24px);
+  line-height: rem(36px);
+  max-width: 600px;
 }
