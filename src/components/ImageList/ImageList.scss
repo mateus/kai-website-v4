@@ -58,53 +58,162 @@ $layout-margin-top: rem(150px);
   color: color(white);
 }
 
+.ImageList--autoFit {
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+
+  .ImageList__Item {
+    &:first-child .ImageList__Image {
+      border-top-left-radius: border-radius(large);
+      border-bottom-left-radius: border-radius(large);
+    }
+    &:last-child .ImageList__Image {
+      border-top-right-radius: border-radius(large);
+      border-bottom-right-radius: border-radius(large);
+    }
+  }
+}
+
+.ImageList--oneOff {
+  .ImageList__Item {
+    @include breakpoint-before(small) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+      }
+      &:nth-child(2) .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+      }
+      &:nth-last-child(2) .ImageList__Image {
+        border-bottom-left-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+
+    @include breakpoint-between(small, medium) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+      }
+      &:nth-child(3) .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-bottom-left-radius: border-radius(large);
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+
+    @include breakpoint-after(medium) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+        border-bottom-left-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+  }
+}
+
+.ImageList--odd {
+  .ImageList__Item {
+    @include breakpoint-before(small) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+      }
+      &:nth-child(2) .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+      }
+      &:nth-last-child(2) .ImageList__Image {
+        border-bottom-right-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-bottom-left-radius: border-radius(large);
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+
+    @include breakpoint-between(small, medium) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+      }
+      &:nth-child(3) .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+        border-bottom-right-radius: border-radius(large);
+      }
+      &:nth-last-child(2) .ImageList__Image {
+        border-bottom-left-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+
+    @include breakpoint-after(medium) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+        border-bottom-left-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+  }
+}
+
+.ImageList--even {
+  .ImageList__Item {
+    @include breakpoint-before(small) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+      }
+      &:nth-child(2) .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+      }
+      &:nth-last-child(2) .ImageList__Image {
+        border-bottom-left-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+
+    @include breakpoint-between(small, medium) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+      }
+      &:nth-child(3) .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+      }
+      &:nth-last-child(3) .ImageList__Image {
+        border-bottom-left-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+
+    @include breakpoint-after(medium) {
+      &:first-child .ImageList__Image {
+        border-top-left-radius: border-radius(large);
+        border-bottom-left-radius: border-radius(large);
+      }
+      &:last-child .ImageList__Image {
+        border-top-right-radius: border-radius(large);
+        border-bottom-right-radius: border-radius(large);
+      }
+    }
+  }
+}
+
 .ImageList__Item {
   cursor: pointer;
 
   &:hover {
     .ImageList__Image {
       border: 1px solid color(white);
-    }
-  }
-
-  @include breakpoint-before(small) {
-    &:first-child .ImageList__Image {
-      border-top-left-radius: border-radius(large);
-    }
-    &:nth-child(2) .ImageList__Image {
-      border-top-right-radius: border-radius(large);
-    }
-    &:nth-last-child(2) .ImageList__Image {
-      border-bottom-left-radius: border-radius(large);
-    }
-    &:last-child .ImageList__Image {
-      border-bottom-right-radius: border-radius(large);
-    }
-  }
-
-  @include breakpoint-between(small, medium) {
-    &:first-child .ImageList__Image {
-      border-top-left-radius: border-radius(large);
-    }
-    &:nth-child(3) .ImageList__Image {
-      border-top-right-radius: border-radius(large);
-    }
-    &:nth-last-child(3) .ImageList__Image {
-      border-bottom-left-radius: border-radius(large);
-    }
-    &:last-child .ImageList__Image {
-      border-bottom-right-radius: border-radius(large);
-    }
-  }
-
-  @include breakpoint-after(medium) {
-    &:first-child .ImageList__Image {
-      border-top-left-radius: border-radius(large);
-      border-bottom-left-radius: border-radius(large);
-    }
-    &:last-child .ImageList__Image {
-      border-top-right-radius: border-radius(large);
-      border-bottom-right-radius: border-radius(large);
     }
   }
 }

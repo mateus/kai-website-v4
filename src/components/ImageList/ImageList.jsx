@@ -24,11 +24,19 @@ class ImageList extends Component {
   render() {
     const { hover } = this.state;
     const { images } = this.props;
+
+    const autoFit = images.length <= 3;
+    const oneOff = (images.length - 1) % 3 === 0;
+
     return (
       <div>
         <div
           className={classNames('ImageList', {
             'ImageList--hovered': hover != null,
+            'ImageList--autoFit': autoFit,
+            'ImageList--oneOff': oneOff && !autoFit,
+            'ImageList--even': images.length % 2 === 0 && !oneOff && !autoFit,
+            'ImageList--odd': images.length % 2 !== 0 && !oneOff && !autoFit,
           })}
         >
           {images.map((image, index) => {
