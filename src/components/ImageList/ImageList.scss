@@ -82,7 +82,7 @@ $layout-margin-top: rem(150px);
     }
   }
 
-  @include breakpoint-before(medium) {
+  @include breakpoint-between(small, medium) {
     &:first-child .ImageList__Image {
       border-top-left-radius: border-radius(large);
     }
