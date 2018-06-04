@@ -59,7 +59,9 @@ $layout-margin-top: rem(150px);
 }
 
 .ImageList--autoFit {
-  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  @include breakpoint-before(small) {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  }
 
   .ImageList__Item {
     &:first-child .ImageList__Image {

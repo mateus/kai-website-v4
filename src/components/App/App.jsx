@@ -17,6 +17,8 @@ class App extends Component {
 
   async loadAlbums() {
     const undercityAlbum = await import(/* webpackChunkName: 'undercityAlbum' */ './albums/undercity');
+    const mtshastaAlbum = await import(/* webpackChunkName: 'undercityAlbum' */ './albums/mt_shasta_17');
+    const canadaPNWAlbum = await import(/* webpackChunkName: 'undercityAlbum' */ './albums/canada_pnw_18');
 
     if (!this.mounted) {
       return;
@@ -24,11 +26,13 @@ class App extends Component {
 
     this.setState({
       undercityAlbum,
+      mtshastaAlbum,
+      canadaPNWAlbum,
     });
   }
 
   render() {
-    const { undercityAlbum } = this.state;
+    const { undercityAlbum, canadaPNWAlbum, mtshastaAlbum } = this.state;
 
     if (!undercityAlbum) {
       return <h1>Loading albums</h1>;
@@ -44,34 +48,21 @@ class App extends Component {
                 images={[
                   {
                     url: undercityAlbum.thumbnail.src,
-                    title: 'Undercity',
+                    title: 'Undercity ‘13 – Today',
                     description:
                       'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
                   },
                   {
-                    url: 'https://placeimg.com/640/480/tech',
-                    title: 'Urban exploration',
-                    description: 'description',
-                  },
-                  {
-                    url: 'https://placeimg.com/640/480/arch',
+                    url: canadaPNWAlbum.thumbnail.src,
                     title: 'Canada & PNW ‘17',
-                    description: 'description',
+                    description:
+                      'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
                   },
                   {
-                    url: 'https://placeimg.com/640/480/people',
+                    url: mtshastaAlbum.thumbnail.src,
                     title: 'Mt. Shasta ‘18',
-                    description: 'description',
-                  },
-                  {
-                    url: 'https://placeimg.com/640/480/nature',
-                    title: '春休み',
-                    description: 'description',
-                  },
-                  {
-                    url: 'https://placeimg.com/640/480/grayscale',
-                    title: 'Miscellaneous',
-                    description: 'description',
+                    description:
+                      'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
                   },
                 ]}
               />
