@@ -1,6 +1,7 @@
 @import '../../stylesheets/utilities';
 
 $imagelist-image-height: 84px;
+$imagelist-image-height-mobile: 100px;
 $imagelist-gap: 1px;
 $imagelist-gap-mobile: 3px;
 $imagelist-row-items-amount-large-screen: 6;
@@ -232,6 +233,10 @@ $layout-margin-top: rem(150px);
   border: 1px solid transparent;
   height: $imagelist-image-height;
   transition: border duration() ease-in-out;
+
+  @include breakpoint-before(medium) {
+    height: $imagelist-image-height-mobile;
+  }
 }
 
 .ImageList__Title {
