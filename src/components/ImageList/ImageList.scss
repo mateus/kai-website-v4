@@ -300,8 +300,7 @@ $layout-margin-bottom: rem(200px);
   letter-spacing: -2px;
   color: color(white);
   text-align: right;
-  background-blend-mode: exclusion;
-  mix-blend-mode: exclusion;
+  mix-blend-mode: exclusion; // Bad on Chrome
   transform: rotate(-180deg);
 
   @include breakpoint-before(small) {

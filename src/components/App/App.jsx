@@ -56,13 +56,13 @@ class App extends Component {
                     url: canadaPNWAlbum.thumbnail.src,
                     title: 'Canada & PNW ‘17',
                     description:
-                      'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
+                      'Another cool trip made with some cool people. Lots of maple syrup and beavers',
                   },
                   {
                     url: mtshastaAlbum.thumbnail.src,
                     title: 'Mt. Shasta ‘18',
                     description:
-                      'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
+                      "Very very big mountain that is very cold and you can't really go up there but is gorgeous",
                   },
                 ]}
               />
