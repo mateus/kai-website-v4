@@ -2,6 +2,10 @@
 
 .HomeHeader {
   z-index: z-index(base);
+
+  @include breakpoint-before(small) {
+    text-align: center;
+  }
 }
 
 .HomeHeader__Content {
@@ -13,9 +17,7 @@
   position: absolute;
   top: layout-margin();
   right: layout-margin();
-  flex: 1;
   display: flex;
-  justify-content: flex-end;
   padding-left: spacing(loose);
   line-height: rem(16px);
 
