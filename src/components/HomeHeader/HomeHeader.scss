@@ -20,8 +20,14 @@
   line-height: rem(16px);
 
   li:not(:first-child) {
-    list-style-type: disc;
-    margin-left: spacing(loose);
+    list-style-type: none;
+    margin-left: spacing(tight);
+
+    &::before {
+      display: inline-block;
+      margin-right: spacing(tight);
+      content: '•';
+    }
   }
 
   @include breakpoint-before(medium) {
