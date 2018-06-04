@@ -1,7 +1,5 @@
 @import '../../stylesheets/utilities';
 
-$layout-margin: rem(60px);
-
 .Page {
   display: flex;
   min-height: 100vh;
@@ -11,10 +9,10 @@ $layout-margin: rem(60px);
   flex: 1;
   display: flex;
   flex-direction: column;
-  margin: $layout-margin;
+  margin: layout-margin();
 
   @include breakpoint-before(small) {
-    margin: $layout-margin spacing(loose) spacing(loose);
+    margin: layout-margin() spacing(loose) spacing(loose);
   }
 }
 

@@ -13,6 +13,10 @@
   @return ($target / $context) * 1rem;
 }
 
+@function layout-margin() {
+  @return rem($layout-margin);
+}
+
 @function spacing($spacing: base) {
   @if map-has-key($spacings, $spacing) {
     @return map-get($spacings, $spacing);
