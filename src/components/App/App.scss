@@ -22,8 +22,12 @@
   flex-direction: column;
 }
 
-.LayoutItem--center {
+.LayoutItem--alignmentCenter {
   justify-content: center;
+}
+
+.LayoutItem--distributionCenter {
+  align-items: center;
 }
 
 .LayoutItem--fill {

@@ -17,11 +17,62 @@ ShallowWrapper {
     "key": undefined,
     "nodeType": "host",
     "props": Object {
-      "children": "Loading albums",
+      "children": <div
+        className="Layout"
+>
+        <div
+                className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter"
+        >
+                <h1>
+                        Loading albums...
+                </h1>
+        </div>
+</div>,
+      "className": "Page",
     },
     "ref": null,
-    "rendered": "Loading albums",
-    "type": "h1",
+    "rendered": Object {
+      "instance": null,
+      "key": undefined,
+      "nodeType": "host",
+      "props": Object {
+        "children": <div
+          className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter"
+>
+          <h1>
+                    Loading albums...
+          </h1>
+</div>,
+        "className": "Layout",
+      },
+      "ref": null,
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <h1>
+            Loading albums...
+</h1>,
+          "className": "LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": "Loading albums...",
+          },
+          "ref": null,
+          "rendered": "Loading albums...",
+          "type": "h1",
+        },
+        "type": "div",
+      },
+      "type": "div",
+    },
+    "type": "main",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -29,11 +80,62 @@ ShallowWrapper {
       "key": undefined,
       "nodeType": "host",
       "props": Object {
-        "children": "Loading albums",
+        "children": <div
+          className="Layout"
+>
+          <div
+                    className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter"
+          >
+                    <h1>
+                              Loading albums...
+                    </h1>
+          </div>
+</div>,
+        "className": "Page",
       },
       "ref": null,
-      "rendered": "Loading albums",
-      "type": "h1",
+      "rendered": Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": <div
+            className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter"
+>
+            <h1>
+                        Loading albums...
+            </h1>
+</div>,
+          "className": "Layout",
+        },
+        "ref": null,
+        "rendered": Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": <h1>
+              Loading albums...
+</h1>,
+            "className": "LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter",
+          },
+          "ref": null,
+          "rendered": Object {
+            "instance": null,
+            "key": undefined,
+            "nodeType": "host",
+            "props": Object {
+              "children": "Loading albums...",
+            },
+            "ref": null,
+            "rendered": "Loading albums...",
+            "type": "h1",
+          },
+          "type": "div",
+        },
+        "type": "div",
+      },
+      "type": "main",
     },
   ],
   Symbol(enzyme.__options__): Object {

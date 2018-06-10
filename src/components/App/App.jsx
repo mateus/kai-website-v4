@@ -4,7 +4,7 @@ import { ImageList, HomeHeader } from '../';
 import './App.scss';
 
 class App extends Component {
-  state = {};
+  state = { albumsLoaded: false };
   mounted = true;
 
   componentDidMount() {
@@ -25,6 +25,7 @@ class App extends Component {
     }
 
     this.setState({
+      albumsLoaded: true,
       undercityAlbum,
       mtshastaAlbum,
       canadaPNWAlbum,
@@ -32,45 +33,52 @@ class App extends Component {
   }
 
   render() {
-    const { undercityAlbum, canadaPNWAlbum, mtshastaAlbum } = this.state;
+    const {
+      albumsLoaded,
+      undercityAlbum,
+      canadaPNWAlbum,
+      mtshastaAlbum,
+    } = this.state;
 
-    if (!undercityAlbum) {
-      return <h1>Loading albums</h1>;
-    } else {
-      return (
-        <main className="Page">
-          <div className="Layout">
-            <div className="LayoutItem LayoutItem--fill LayoutItem--center">
-              <HomeHeader />
-            </div>
-            <div className="LayoutItem">
-              <ImageList
-                images={[
-                  {
-                    url: undercityAlbum.thumbnail.src,
-                    title: 'Undercity ‘13 – Today',
-                    description:
-                      'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
-                  },
-                  {
-                    url: canadaPNWAlbum.thumbnail.src,
-                    title: 'Canada & PNW ‘17',
-                    description:
-                      'Another cool trip made with some cool people. Lots of maple syrup and beavers',
-                  },
-                  {
-                    url: mtshastaAlbum.thumbnail.src,
-                    title: 'Mt. Shasta ‘18',
-                    description:
-                      "Very very big mountain that is very cold and you can't really go up there but is gorgeous",
-                  },
-                ]}
-              />
-            </div>
-          </div>
-        </main>
-      );
-    }
+    const pageContent = albumsLoaded ? (
+      <div className="Layout">
+        <div className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter">
+          <HomeHeader />
+        </div>
+        <div className="LayoutItem">
+          <ImageList
+            images={[
+              {
+                url: undercityAlbum.thumbnail.src,
+                title: 'Undercity ‘13 – Today',
+                description:
+                  'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
+              },
+              {
+                url: canadaPNWAlbum.thumbnail.src,
+                title: 'Canada & PNW ‘17',
+                description:
+                  'Another cool trip made with some cool people. Lots of maple syrup and beavers',
+              },
+              {
+                url: mtshastaAlbum.thumbnail.src,
+                title: 'Mt. Shasta ‘18',
+                description:
+                  "Very very big mountain that is very cold and you can't really go up there but is gorgeous",
+              },
+            ]}
+          />
+        </div>
+      </div>
+    ) : (
+      <div className="Layout">
+        <div className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter">
+          <h1>Loading albums...</h1>
+        </div>
+      </div>
+    );
+
+    return <main className="Page">{pageContent}</main>;
   }
 }
 
