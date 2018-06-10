@@ -4,13 +4,111 @@ import { shallow } from 'enzyme';
 import ImageList from './ImageList';
 
 describe('ImageList', () => {
-  it('renders correctly', () => {
+  it('renders items correctly', () => {
     const images = generateImages(2);
     const imageList = shallow(<ImageList images={images} />);
 
     expect(imageList.find('.ImageList').children().length).toEqual(
       images.length
     );
+  });
+
+  it('elements ImageList__Image have their respective image urls', () => {
+    const images = generateImages(2);
+    const imageList = shallow(<ImageList images={images} />);
+
+    expect(
+      imageList
+        .find('.ImageList__Image')
+        .first()
+        .prop('style')
+    ).toEqual({
+      backgroundImage: `url(${images[0].url})`,
+    });
+    expect(
+      imageList
+        .find('.ImageList__Image')
+        .last()
+        .prop('style')
+    ).toEqual({
+      backgroundImage: `url(${images[images.length - 1].url})`,
+    });
+  });
+
+  it('elements ImageList__Title have their respective image titles', () => {
+    const images = generateImages(2);
+    const imageList = shallow(<ImageList images={images} />);
+
+    expect(
+      imageList
+        .find('.ImageList__Title')
+        .first()
+        .text()
+    ).toEqual(images[0].title);
+    expect(
+      imageList
+        .find('.ImageList__Title')
+        .last()
+        .text()
+    ).toEqual(images[images.length - 1].title);
+  });
+
+  it('elements ImageList__Preview have their respective image urls', () => {
+    const images = generateImages(2);
+    const imageList = shallow(<ImageList images={images} />);
+
+    expect(
+      imageList
+        .find('.ImageList__Preview')
+        .first()
+        .prop('style')
+    ).toEqual({
+      backgroundImage: `url(${images[0].url})`,
+    });
+    expect(
+      imageList
+        .find('.ImageList__Preview')
+        .last()
+        .prop('style')
+    ).toEqual({
+      backgroundImage: `url(${images[images.length - 1].url})`,
+    });
+  });
+
+  it('elements ImageList__PreviewTitle have their respective image titles', () => {
+    const images = generateImages(2);
+    const imageList = shallow(<ImageList images={images} />);
+
+    expect(
+      imageList
+        .find('.ImageList__PreviewTitle')
+        .first()
+        .text()
+    ).toEqual(images[0].title);
+    expect(
+      imageList
+        .find('.ImageList__PreviewTitle')
+        .last()
+        .text()
+    ).toEqual(images[images.length - 1].title);
+  });
+
+  it('elements ImageList__PreviewDescription have their respective image description', () => {
+    const images = generateImages(2);
+    const imageList = shallow(<ImageList images={images} />);
+
+    expect(
+      imageList
+        .find('.ImageList__PreviewDescription')
+        .first()
+        .contains(<mark>{images[0].description}</mark>)
+    ).toBeTruthy();
+    expect(
+      imageList
+        .find('.ImageList__PreviewDescription')
+        .last()
+        .contains(<mark>{images[images.length - 1].description}</mark>)
+    ).toBeTruthy();
   });
 
   it('element ImageList has hovered class when a list Item is hovered', () => {
@@ -149,11 +247,14 @@ describe('ImageList', () => {
   });
 
   function generateImages(amount = 1) {
-    const image = { url: 'url', title: 'title', description: 'description' };
     const imageArr = [];
 
     for (let i = 0; i < amount; i++) {
-      imageArr.push(image);
+      imageArr.push({
+        url: `url${i}`,
+        title: `title${i}`,
+        description: `description${i}`,
+      });
     }
     return imageArr;
   }
