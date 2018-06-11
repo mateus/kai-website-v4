@@ -16,11 +16,11 @@ import img14 from './image14.jpg';
 
 const thumbnail = {
   src: thumb,
-  label: 'Label',
+  description: 'Label',
 };
 const image1 = {
   src: img1,
-  label: 'Label 2',
+  description: 'Label 2',
 };
 const image2 = {
   src: img2,
@@ -65,10 +65,7 @@ const image14 = {
 const title = 'Mt. Shasta ‘18';
 const description =
   "Very very big mountain that is very cold and you can't really go up there but is gorgeous";
-
-export {
-  title,
-  description,
+const pictures = [
   thumbnail,
   image1,
   image2,
@@ -84,4 +81,6 @@ export {
   image12,
   image13,
   image14,
-};
+];
+
+export { title, description, pictures, thumbnail };

@@ -1,0 +1,85 @@
+@import '../../stylesheets/utilities';
+
+$album-picture-max-size: rem(90px);
+
+.Album__Wrapper {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: z-index(behind);
+  opacity: 0;
+  background-color: color(white);
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: color(white);
+  transition: opacity duration(long) ease-in-out;
+}
+
+.Album__Wrapper--active {
+  opacity: 1;
+  z-index: z-index(top);
+}
+
+.Album_CloseButton {
+  cursor: pointer;
+  position: fixed;
+  top: spacing();
+  right: spacing();
+  padding: spacing();
+  background-color: transparent;
+  border: 0;
+  transform: scale(1);
+  transition: transform duration() easing();
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.Album__Hub {
+  position: relative;
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: layout-margin();
+  color: color(white);
+  transition: opacity duration(long) ease-in-out;
+}
+
+.Album__Pictures {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-end;
+  padding: layout-margin();
+  overflow-x: scroll;
+}
+
+.Album__Picture {
+  cursor: pointer;
+  border-radius: border-radius();
+  border: 1px solid transparent;
+  transition: border duration() ease-in-out;
+
+  &:not(:first-child) {
+    margin-left: spacing(tight);
+  }
+
+  &:hover {
+    border: 1px solid color(white);
+  }
+}
+
+.Album__Picture--selected {
+  border: 1px solid color(white);
+}
+
+.Album__PictureOffset {
+  padding: layout-margin() / 2;
+}

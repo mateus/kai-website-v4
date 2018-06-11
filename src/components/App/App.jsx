@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { ImageList, HomeHeader } from '../';
+import { ImageList, HomeHeader, Album } from '../';
 import './App.scss';
 
 class App extends Component {
@@ -35,11 +35,14 @@ class App extends Component {
 
   handleAlbumClicked(album) {
     this.setState({ selectedAlbum: album });
-    console.log('CLICKED', album);
+  }
+
+  handleCloseAction() {
+    this.setState({ selectedAlbum: null });
   }
 
   render() {
-    const { albumsLoaded, albums } = this.state;
+    const { albumsLoaded, albums, selectedAlbum } = this.state;
 
     const pageContent = albumsLoaded ? (
       <div className="Layout">
@@ -51,6 +54,16 @@ class App extends Component {
             images={generateImageListArr(albums)}
             handleClick={this.handleAlbumClicked.bind(this)}
           />
+          {albums.map((album, index) => {
+            return (
+              <Album
+                key={index}
+                active={index === selectedAlbum}
+                pictures={album.pictures}
+                closeAction={this.handleCloseAction.bind(this)}
+              />
+            );
+          })}
         </div>
       </div>
     ) : (
