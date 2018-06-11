@@ -62,7 +62,13 @@ const image14 = {
   src: img14,
 };
 
+const title = 'Mt. Shasta ‘18';
+const description =
+  "Very very big mountain that is very cold and you can't really go up there but is gorgeous";
+
 export {
+  title,
+  description,
   thumbnail,
   image1,
   image2,

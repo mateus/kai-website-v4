@@ -114,7 +114,13 @@ const image27 = {
   src: img27,
 };
 
+const title = 'Undercity ‘13 – Today';
+const description =
+  'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration';
+
 export {
+  title,
+  description,
   thumbnail,
   image1,
   image2,

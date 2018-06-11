@@ -4,7 +4,7 @@ import { ImageList, HomeHeader } from '../';
 import './App.scss';
 
 class App extends Component {
-  state = { albumsLoaded: false };
+  state = { albumsLoaded: false, selectedAlbum: null, albums: [] };
   mounted = true;
 
   componentDidMount() {
@@ -16,6 +16,7 @@ class App extends Component {
   }
 
   async loadAlbums() {
+    const { albums } = this.state;
     const undercityAlbum = await import(/* webpackChunkName: 'undercityAlbum' */ './albums/undercity');
     const mtshastaAlbum = await import(/* webpackChunkName: 'undercityAlbum' */ './albums/mt_shasta_17');
     const canadaPNWAlbum = await import(/* webpackChunkName: 'undercityAlbum' */ './albums/canada_pnw_18');
@@ -24,21 +25,21 @@ class App extends Component {
       return;
     }
 
+    albums.push(undercityAlbum, mtshastaAlbum, canadaPNWAlbum);
+
     this.setState({
       albumsLoaded: true,
-      undercityAlbum,
-      mtshastaAlbum,
-      canadaPNWAlbum,
+      albums,
     });
   }
 
+  handleAlbumClicked(album) {
+    this.setState({ selectedAlbum: album });
+    console.log('CLICKED', album);
+  }
+
   render() {
-    const {
-      albumsLoaded,
-      undercityAlbum,
-      canadaPNWAlbum,
-      mtshastaAlbum,
-    } = this.state;
+    const { albumsLoaded, albums } = this.state;
 
     const pageContent = albumsLoaded ? (
       <div className="Layout">
@@ -47,26 +48,8 @@ class App extends Component {
         </div>
         <div className="LayoutItem">
           <ImageList
-            images={[
-              {
-                url: undercityAlbum.thumbnail.src,
-                title: 'Undercity ‘13 – Today',
-                description:
-                  'An anthology of trips, this series is an ongoing album documenting what many would consider to be Urban Exploration',
-              },
-              {
-                url: canadaPNWAlbum.thumbnail.src,
-                title: 'Canada & PNW ‘17',
-                description:
-                  'Another cool trip made with some cool people. Lots of maple syrup and beavers',
-              },
-              {
-                url: mtshastaAlbum.thumbnail.src,
-                title: 'Mt. Shasta ‘18',
-                description:
-                  "Very very big mountain that is very cold and you can't really go up there but is gorgeous",
-              },
-            ]}
+            images={generateImageListArr(albums)}
+            handleClick={this.handleAlbumClicked.bind(this)}
           />
         </div>
       </div>
@@ -80,6 +63,22 @@ class App extends Component {
 
     return <main className="Page">{pageContent}</main>;
   }
+}
+
+function generateImageListArr(albums) {
+  const imageListArr = [];
+
+  for (const album in albums) {
+    if (albums.hasOwnProperty(album)) {
+      imageListArr.push({
+        title: albums[album].title,
+        description: albums[album].description,
+        url: albums[album].thumbnail.src,
+      });
+    }
+  }
+
+  return imageListArr;
 }
 
 export default App;

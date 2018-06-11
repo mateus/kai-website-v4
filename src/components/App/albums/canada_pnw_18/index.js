@@ -114,7 +114,13 @@ const image27 = {
   src: img27,
 };
 
+const title = 'Canada & PNW ‘17';
+const description =
+  'Another cool trip made with some cool people. Lots of maple syrup and beavers';
+
 export {
+  title,
+  description,
   thumbnail,
   image1,
   image2,

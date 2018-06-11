@@ -15,10 +15,17 @@ class ImageList extends Component {
     });
   }
 
-  handleMouseLeave(index) {
+  handleMouseLeave() {
     this.setState({
       hover: null,
     });
+  }
+
+  handleItemClick(index) {
+    this.setState({
+      hover: null,
+    });
+    this.props.handleClick(index);
   }
 
   render() {
@@ -45,8 +52,9 @@ class ImageList extends Component {
               <div
                 key={index}
                 className="ImageList__Item"
+                onClick={this.handleItemClick.bind(this, index)}
                 onMouseEnter={this.handleMouseEnter.bind(this, index)}
-                onMouseLeave={this.handleMouseLeave.bind(this, index)}
+                onMouseLeave={this.handleMouseLeave.bind(this)}
               >
                 <div
                   className="ImageList__Image"
@@ -97,6 +105,7 @@ ImageList.propTypes = {
       description: PropTypes.string.isRequired,
     })
   ).isRequired,
+  handleClick: PropTypes.func.isRequired,
 };
 
 export default ImageList;
