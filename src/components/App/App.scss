@@ -33,3 +33,9 @@
 .LayoutItem--fill {
   flex: 1;
 }
+
+.LoadingTitle {
+  @include breakpoint-before(small) {
+    font-size: rem(30px);
+  }
+}

@@ -73,7 +73,7 @@ class App extends Component {
     ) : (
       <div className="Layout">
         <div className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter">
-          <h1>Loading albums...</h1>
+          <h1 className="LoadingTitle">Loading albums...</h1>
         </div>
       </div>
     );

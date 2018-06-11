@@ -23,7 +23,9 @@ ShallowWrapper {
         <div
                 className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter"
         >
-                <h1>
+                <h1
+                        className="LoadingTitle"
+                >
                         Loading albums...
                 </h1>
         </div>
@@ -39,7 +41,9 @@ ShallowWrapper {
         "children": <div
           className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter"
 >
-          <h1>
+          <h1
+                    className="LoadingTitle"
+          >
                     Loading albums...
           </h1>
 </div>,
@@ -51,7 +55,9 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": <h1>
+          "children": <h1
+            className="LoadingTitle"
+>
             Loading albums...
 </h1>,
           "className": "LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter",
@@ -63,6 +69,7 @@ ShallowWrapper {
           "nodeType": "host",
           "props": Object {
             "children": "Loading albums...",
+            "className": "LoadingTitle",
           },
           "ref": null,
           "rendered": "Loading albums...",
@@ -86,7 +93,9 @@ ShallowWrapper {
           <div
                     className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter"
           >
-                    <h1>
+                    <h1
+                              className="LoadingTitle"
+                    >
                               Loading albums...
                     </h1>
           </div>
@@ -102,7 +111,9 @@ ShallowWrapper {
           "children": <div
             className="LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter"
 >
-            <h1>
+            <h1
+                        className="LoadingTitle"
+            >
                         Loading albums...
             </h1>
 </div>,
@@ -114,7 +125,9 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": <h1>
+            "children": <h1
+              className="LoadingTitle"
+>
               Loading albums...
 </h1>,
             "className": "LayoutItem LayoutItem--fill LayoutItem--alignmentCenter LayoutItem--distributionCenter",
@@ -126,6 +139,7 @@ ShallowWrapper {
             "nodeType": "host",
             "props": Object {
               "children": "Loading albums...",
+              "className": "LoadingTitle",
             },
             "ref": null,
             "rendered": "Loading albums...",
