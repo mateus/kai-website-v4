@@ -30,9 +30,6 @@ class Album extends Component {
         className={classNames('Album__Wrapper', {
           'Album__Wrapper--active': active,
         })}
-        style={{
-          backgroundImage: `url(${pictures[selectedImage].src})`,
-        }}
       >
         <div className="Album__Hub">
           <button onClick={closeAction} className="Album_CloseButton">
@@ -54,6 +51,19 @@ class Album extends Component {
             <div className="Album__PictureOffset" />
           </div>
         </div>
+        {pictures.map((picture, index) => {
+          return (
+            <div
+              key={index}
+              className={classNames('Album__Preview', {
+                'Album__Preview--show': selectedImage === index,
+              })}
+              style={{
+                backgroundImage: `url(${pictures[selectedImage].src})`,
+              }}
+            />
+          );
+        })}
       </div>
     );
   }
