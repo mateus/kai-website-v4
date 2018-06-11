@@ -105,7 +105,7 @@ ImageList.propTypes = {
       description: PropTypes.string.isRequired,
     })
   ).isRequired,
-  handleClick: PropTypes.func.isRequired,
+  handleClick: PropTypes.func,
 };
 
 export default ImageList;
