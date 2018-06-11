@@ -11,14 +11,40 @@ class Album extends Component {
     selectedImage: 0,
   };
 
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleKeydown.bind(this));
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleKeydown.bind(this));
+  }
+
+  handleKeydown(e) {
+    e = e || window.event;
+    const { selectedImage } = this.state;
+    const { pictures, active, closeAction } = this.props;
+
+    if (!active) {
+      return;
+    }
+
+    if (e.keyCode === 27) {
+      closeAction();
+    } else if (e.keyCode === 37 && selectedImage > 0) {
+      this.setState({
+        selectedImage: selectedImage - 1,
+      });
+    } else if (e.keyCode === 39 && selectedImage < pictures.length - 1) {
+      this.setState({
+        selectedImage: selectedImage + 1,
+      });
+    }
+  }
+
   handleClick(selectedImage) {
     this.setState({
       selectedImage,
     });
-  }
-
-  calculateAspectRatioFit() {
-    debugger;
   }
 
   render() {
