@@ -82,7 +82,6 @@ $description-offset-bottom: rem(90px);
 
   @include breakpoint-before(small) {
     padding: spacing(loose);
-    padding-bottom: layout-margin();
   }
 }
 
