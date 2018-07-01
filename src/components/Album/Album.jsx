@@ -40,12 +40,13 @@ class Album extends Component {
     this.setState({ windowWidth: window.innerWidth });
   }
 
-  handleSwipe(deltaX) {
+  handleSwipe(e, deltaX) {
     if (deltaX < 0) {
       this.swipingLeft();
     } else {
       this.swipingRight();
     }
+    return e;
   }
 
   swipingLeft() {
