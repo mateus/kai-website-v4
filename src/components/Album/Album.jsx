@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Swipeable from 'react-swipeable';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
@@ -18,6 +19,9 @@ class Album extends Component {
 
     this.handleReturn = this.handleReturn.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.swipingLeft = this.swipingLeft.bind(this);
+    this.swipingRight = this.swipingRight.bind(this);
+    this.handleSwipe = this.handleSwipe.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
@@ -36,9 +40,44 @@ class Album extends Component {
     this.setState({ windowWidth: window.innerWidth });
   }
 
+  handleSwipe(deltaX) {
+    if (deltaX < 0) {
+      this.swipingLeft();
+    } else {
+      this.swipingRight();
+    }
+  }
+
+  swipingLeft() {
+    const { selectedImage, selectedImageHistory } = this.state;
+
+    if (selectedImage > 0) {
+      selectedImageHistory.push(selectedImage - 1);
+
+      this.setState({
+        selectedImage: selectedImage - 1,
+        selectedImageHistory,
+      });
+    }
+  }
+
+  swipingRight() {
+    const { selectedImage, selectedImageHistory } = this.state;
+    const { pictures } = this.props;
+
+    if (selectedImage < pictures.length - 1) {
+      selectedImageHistory.push(selectedImage + 1);
+
+      this.setState({
+        selectedImage: selectedImage + 1,
+        selectedImageHistory,
+      });
+    }
+  }
+
   handleKeydown(e) {
     e = e || window.event;
-    const { selectedImage, selectedImageHistory, windowWidth } = this.state;
+    const { selectedImage, selectedImageHistory } = this.state;
     const { pictures, active, closeAction } = this.props;
 
     if (!active) {
@@ -99,7 +138,9 @@ class Album extends Component {
         : 'Use arrow keys to navigate the gallery';
 
     return (
-      <div
+      <Swipeable
+        onSwiped={this.handleSwipe}
+        disabled={!active}
         className={classNames('Album__Wrapper', {
           'Album__Wrapper--active': active,
         })}
@@ -153,7 +194,7 @@ class Album extends Component {
             />
           );
         })}
-      </div>
+      </Swipeable>
     );
   }
 }
