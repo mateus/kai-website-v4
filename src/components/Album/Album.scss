@@ -1,5 +1,7 @@
 @import '../../stylesheets/utilities';
 
+$description-offset-bottom: rem(90px);
+
 .Album__Wrapper {
   z-index: z-index(behind);
   position: fixed;
@@ -33,18 +35,34 @@
   display: block;
 }
 
-.Album_CloseButton {
+.Album__Controls {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Album__HeadingMessage {
+  display: flex;
+  align-items: center;
+  font-weight: bold;
+
+  img {
+    margin-right: spacing();
+  }
+}
+
+.Album_Button {
   cursor: pointer;
-  position: fixed;
-  top: spacing();
-  right: spacing();
+  outline: none;
   padding: spacing();
   background-color: transparent;
   border: 0;
   transform: scale(1);
-  transition: transform duration() easing();
+  transition: transform duration() ease-in-out;
 
-  &:hover {
+  &:hover,
+  &:focus {
     transform: scale(1.1);
   }
 }
@@ -52,12 +70,24 @@
 .Album__Hub {
   z-index: z-index(top);
   position: relative;
+  display: flex;
+  flex-direction: column;
   box-sizing: border-box;
   height: 100%;
   width: 100%;
   padding: layout-margin();
   color: color(white);
   transition: opacity duration(long) ease-in-out;
+}
+
+.Album__Description {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  font-size: rem(24px);
+  line-height: rem(36px);
+  max-width: rem(600px);
+  margin-bottom: $description-offset-bottom;
 }
 
 .Album__Pictures {
@@ -74,6 +104,7 @@
 
 .Album__Picture {
   cursor: pointer;
+  outline: none;
   border-radius: border-radius();
   border: 1px solid transparent;
   transition: border duration() ease-in-out;
@@ -82,7 +113,8 @@
     margin-left: spacing(tight);
   }
 
-  &:hover {
+  &:hover,
+  &:focus {
     border: 1px solid color(white);
   }
 }

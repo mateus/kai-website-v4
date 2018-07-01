@@ -47,8 +47,10 @@ class LazyImage extends Component {
           src={src}
           onLoad={this.handleOnLoad.bind(this)}
           onClick={onClick}
+          onFocus={onClick}
           width={width}
           height={height}
+          tabIndex="1"
           alt=""
         />
       )

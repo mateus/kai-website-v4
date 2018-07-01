@@ -60,6 +60,7 @@ class App extends Component {
                 key={index}
                 active={index === selectedAlbum}
                 pictures={album.pictures}
+                description={album.description}
                 closeAction={this.handleCloseAction.bind(this)}
               />
             );

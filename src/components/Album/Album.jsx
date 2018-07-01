@@ -2,14 +2,22 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-import close from './icons/close.svg';
+import { closeIcon, infoIcon, returnIcon } from './icons';
 import LazyImage from './LazyImage';
 import './Album.scss';
 
 class Album extends Component {
   state = {
     selectedImage: 0,
+    selectedImageHistory: [0],
   };
+
+  constructor() {
+    super();
+
+    this.handleReturn = this.handleReturn.bind(this);
+    this.handleClick = this.handleClick.bind(this);
+  }
 
   componentDidMount() {
     window.addEventListener('keydown', this.handleKeydown.bind(this));
@@ -21,7 +29,7 @@ class Album extends Component {
 
   handleKeydown(e) {
     e = e || window.event;
-    const { selectedImage } = this.state;
+    const { selectedImage, selectedImageHistory } = this.state;
     const { pictures, active, closeAction } = this.props;
 
     if (!active) {
@@ -31,24 +39,49 @@ class Album extends Component {
     if (e.keyCode === 27) {
       closeAction();
     } else if (e.keyCode === 37 && selectedImage > 0) {
+      selectedImageHistory.push(selectedImage - 1);
+
       this.setState({
         selectedImage: selectedImage - 1,
+        selectedImageHistory,
       });
     } else if (e.keyCode === 39 && selectedImage < pictures.length - 1) {
+      selectedImageHistory.push(selectedImage + 1);
+
       this.setState({
         selectedImage: selectedImage + 1,
+        selectedImageHistory,
       });
     }
   }
 
   handleClick(selectedImage) {
+    const { selectedImageHistory } = this.state;
+    selectedImageHistory.push(selectedImage);
+
     this.setState({
       selectedImage,
+      selectedImageHistory,
+    });
+  }
+
+  handleReturn() {
+    const { selectedImageHistory } = this.state;
+
+    if (selectedImageHistory.length > 1) {
+      selectedImageHistory.pop();
+    }
+
+    const previousIndex = selectedImageHistory[selectedImageHistory.length - 1];
+
+    this.setState({
+      selectedImage: previousIndex,
+      selectedImageHistory,
     });
   }
 
   render() {
-    const { pictures, active, closeAction } = this.props;
+    const { pictures, active, closeAction, description } = this.props;
     const { selectedImage } = this.state;
 
     return (
@@ -56,11 +89,28 @@ class Album extends Component {
         className={classNames('Album__Wrapper', {
           'Album__Wrapper--active': active,
         })}
+        aria-hidden={!active}
       >
         <div className="Album__Hub">
-          <button onClick={closeAction} className="Album_CloseButton">
-            <img alt="Close button" src={close} />
-          </button>
+          <div className="Album__Controls">
+            <button onClick={this.handleReturn} className="Album_Button">
+              <img alt="Return button" src={returnIcon} />
+            </button>
+            <p className="Album__HeadingMessage">
+              <img alt="Info" src={infoIcon} /> Use arrow keys to navigate the
+              gallery
+            </p>
+            <button onClick={closeAction} className="Album_Button">
+              <img alt="Close button" src={closeIcon} />
+            </button>
+          </div>
+          <div className="Album__Description">
+            <mark>
+              {pictures[selectedImage].description
+                ? pictures[selectedImage].description
+                : description}
+            </mark>
+          </div>
           <div className="Album__Pictures">
             {pictures.map((picture, index) => {
               return (
@@ -70,7 +120,7 @@ class Album extends Component {
                     'Album__Picture--selected': selectedImage === index,
                   })}
                   src={picture.src}
-                  onClick={this.handleClick.bind(this, index)}
+                  onClick={this.handleClick.bind(null, index)}
                 />
               );
             })}
@@ -85,7 +135,7 @@ class Album extends Component {
                 'Album__Preview--show': selectedImage === index,
               })}
               style={{
-                backgroundImage: `url(${pictures[selectedImage].src})`,
+                backgroundImage: `url(${picture.src})`,
               }}
             />
           );
