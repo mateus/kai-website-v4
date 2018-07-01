@@ -40,6 +40,7 @@ $description-offset-bottom: rem(90px);
   flex-wrap: nowrap;
   align-items: center;
   justify-content: space-between;
+  margin: -1 * spacing();
 }
 
 .Album__HeadingMessage {
@@ -78,6 +79,11 @@ $description-offset-bottom: rem(90px);
   padding: layout-margin();
   color: color(white);
   transition: opacity duration(long) ease-in-out;
+
+  @include breakpoint-before(small) {
+    padding: spacing(loose);
+    padding-bottom: layout-margin();
+  }
 }
 
 .Album__Description {
@@ -100,6 +106,10 @@ $description-offset-bottom: rem(90px);
   align-items: flex-end;
   padding: layout-margin();
   overflow-x: scroll;
+
+  @include breakpoint-before(small) {
+    padding: layout-margin() spacing(loose);
+  }
 }
 
 .Album__Picture {

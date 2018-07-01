@@ -10,6 +10,7 @@ class Album extends Component {
   state = {
     selectedImage: 0,
     selectedImageHistory: [0],
+    windowWidth: 0,
   };
 
   constructor() {
@@ -17,19 +18,27 @@ class Album extends Component {
 
     this.handleReturn = this.handleReturn.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
   componentDidMount() {
+    this.updateWindowDimensions();
     window.addEventListener('keydown', this.handleKeydown.bind(this));
+    window.addEventListener('resize', this.updateWindowDimensions);
   }
 
   componentWillUnmount() {
     window.removeEventListener('keydown', this.handleKeydown.bind(this));
+    window.removeEventListener('resize', this.updateWindowDimensions);
+  }
+
+  updateWindowDimensions() {
+    this.setState({ windowWidth: window.innerWidth });
   }
 
   handleKeydown(e) {
     e = e || window.event;
-    const { selectedImage, selectedImageHistory } = this.state;
+    const { selectedImage, selectedImageHistory, windowWidth } = this.state;
     const { pictures, active, closeAction } = this.props;
 
     if (!active) {
@@ -82,7 +91,12 @@ class Album extends Component {
 
   render() {
     const { pictures, active, closeAction, description } = this.props;
-    const { selectedImage } = this.state;
+    const { selectedImage, windowWidth } = this.state;
+
+    const headingMessage =
+      windowWidth < 767
+        ? 'Swipe to navigate gallery'
+        : 'Use arrow keys to navigate the gallery';
 
     return (
       <div
@@ -97,8 +111,7 @@ class Album extends Component {
               <img alt="Return button" src={returnIcon} />
             </button>
             <p className="Album__HeadingMessage">
-              <img alt="Info" src={infoIcon} /> Use arrow keys to navigate the
-              gallery
+              <img alt="Info" src={infoIcon} /> {headingMessage}
             </p>
             <button onClick={closeAction} className="Album_Button">
               <img alt="Close button" src={closeIcon} />
