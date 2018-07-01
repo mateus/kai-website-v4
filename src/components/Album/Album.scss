@@ -125,8 +125,11 @@ $description-offset-bottom: rem(90px);
     margin-left: spacing(tight);
   }
 
-  &:hover,
   &:focus {
+    border: 1px solid darken(color(white), 20%);
+  }
+
+  &:hover {
     border: 1px solid color(white);
   }
 }

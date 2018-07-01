@@ -8,6 +8,13 @@ class LazyImage extends Component {
     error: false,
   };
 
+  constructor() {
+    super();
+
+    this.imageRef = React.createRef();
+    this.handleOnLoad = this.handleOnLoad.bind(this);
+  }
+
   componentDidMount() {
     const { src } = this.props;
     const img = new Image();
@@ -37,24 +44,39 @@ class LazyImage extends Component {
 
   render() {
     const { error, loaded, width, height } = this.state;
-    const { className, src, onClick } = this.props;
+    const { className, src, onClick, focused } = this.props;
 
-    return (
-      !error &&
+    const img = !error &&
       loaded && (
         <img
+          ref={this.imageRef}
           className={className}
           src={src}
-          onLoad={this.handleOnLoad.bind(this)}
+          onLoad={this.handleOnLoad}
           onClick={onClick}
-          onFocus={onClick}
           width={width}
           height={height}
           tabIndex="1"
           alt=""
         />
-      )
-    );
+      );
+
+    if (this.imageRef.current) {
+      this.imageRef.current.addEventListener('keydown', e => {
+        if (
+          document.activeElement === this.imageRef.current &&
+          e.keyCode === 13
+        ) {
+          this.props.onClick();
+        }
+      });
+
+      if (focused) {
+        this.imageRef.current.focus();
+      }
+    }
+
+    return img;
   }
 }
 

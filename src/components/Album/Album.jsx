@@ -171,6 +171,7 @@ class Album extends Component {
               return (
                 <LazyImage
                   key={index}
+                  focused={selectedImage === index}
                   className={classNames('Album__Picture', {
                     'Album__Picture--selected': selectedImage === index,
                   })}
