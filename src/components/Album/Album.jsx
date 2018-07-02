@@ -8,20 +8,23 @@ import LazyImage from './LazyImage';
 import './Album.scss';
 
 class Album extends Component {
-  state = {
-    selectedImage: 0,
-    selectedImageHistory: [0],
-    windowWidth: 0,
-  };
+  constructor(props) {
+    super(props);
 
-  constructor() {
-    super();
+    this.state = {
+      active: props.active,
+      hiddenHub: false,
+      selectedImage: 0,
+      selectedImageHistory: [0],
+      windowWidth: 0,
+    };
 
     this.handleReturn = this.handleReturn.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleSwipe = this.handleSwipe.bind(this);
     this.swipingLeft = this.swipingLeft.bind(this);
     this.swipingRight = this.swipingRight.bind(this);
-    this.handleSwipe = this.handleSwipe.bind(this);
     this.updateWindowDimensions = this.updateWindowDimensions.bind(this);
   }
 
@@ -36,6 +39,10 @@ class Album extends Component {
     window.removeEventListener('resize', this.updateWindowDimensions);
   }
 
+  componentWillReceiveProps(nextProps) {
+    this.setState({ active: nextProps.active });
+  }
+
   updateWindowDimensions() {
     this.setState({ windowWidth: window.innerWidth });
   }
@@ -46,6 +53,9 @@ class Album extends Component {
     } else {
       this.swipingRight();
     }
+    this.setState({
+      hiddenHub: true,
+    });
     return e;
   }
 
@@ -62,6 +72,12 @@ class Album extends Component {
     }
   }
 
+  onTap() {
+    this.setState({
+      hiddenHub: false,
+    });
+  }
+
   swipingRight() {
     const { selectedImage, selectedImageHistory } = this.state;
     const { pictures } = this.props;
@@ -76,10 +92,14 @@ class Album extends Component {
     }
   }
 
+  handleMouseMove() {
+    this.setState({ hiddenHub: false });
+  }
+
   handleKeydown(e) {
     e = e || window.event;
-    const { selectedImage, selectedImageHistory } = this.state;
-    const { pictures, active, closeAction } = this.props;
+    const { selectedImage, selectedImageHistory, active } = this.state;
+    const { pictures, closeAction } = this.props;
 
     if (!active) {
       return;
@@ -93,6 +113,7 @@ class Album extends Component {
       this.setState({
         selectedImage: selectedImage - 1,
         selectedImageHistory,
+        hiddenHub: true,
       });
     } else if (e.keyCode === 39 && selectedImage < pictures.length - 1) {
       selectedImageHistory.push(selectedImage + 1);
@@ -100,6 +121,7 @@ class Album extends Component {
       this.setState({
         selectedImage: selectedImage + 1,
         selectedImageHistory,
+        hiddenHub: true,
       });
     }
   }
@@ -130,8 +152,8 @@ class Album extends Component {
   }
 
   render() {
-    const { pictures, active, closeAction, description } = this.props;
-    const { selectedImage, windowWidth } = this.state;
+    const { pictures, closeAction, description } = this.props;
+    const { selectedImage, windowWidth, active, hiddenHub } = this.state;
 
     const headingMessage =
       windowWidth < 767
@@ -141,6 +163,7 @@ class Album extends Component {
     return (
       <Swipeable
         onSwiped={this.handleSwipe}
+        onMouseMove={this.handleMouseMove}
         disabled={!active}
         className={classNames('Album__Wrapper', {
           'Album__Wrapper--active': active,
@@ -148,7 +171,11 @@ class Album extends Component {
         aria-hidden={!active}
       >
         <div className="Album__Hub">
-          <div className="Album__Controls">
+          <div
+            className={classNames('Album__Controls', {
+              'Album__Controls--hidden': hiddenHub,
+            })}
+          >
             <button onClick={this.handleReturn} className="Album_Button">
               <img alt="Return button" src={returnIcon} />
             </button>
@@ -159,14 +186,22 @@ class Album extends Component {
               <img alt="Close button" src={closeIcon} />
             </button>
           </div>
-          <div className="Album__Description">
+          <div
+            className={classNames('Album__Description', {
+              'Album__Description--no-offset': hiddenHub,
+            })}
+          >
             <mark>
               {pictures[selectedImage].description
                 ? pictures[selectedImage].description
                 : description}
             </mark>
           </div>
-          <div className="Album__Pictures">
+          <div
+            className={classNames('Album__Pictures', {
+              'Album__Pictures--hidden': hiddenHub,
+            })}
+          >
             {pictures.map((picture, index) => {
               return (
                 <LazyImage

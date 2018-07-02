@@ -41,6 +41,12 @@ $description-offset-bottom: rem(90px);
   align-items: center;
   justify-content: space-between;
   margin: -1 * spacing();
+  transform: translateY(0%);
+  transition: transform duration() ease-in-out;
+}
+
+.Album__Controls--hidden {
+  transform: translateY(-200%);
 }
 
 .Album__HeadingMessage {
@@ -92,10 +98,15 @@ $description-offset-bottom: rem(90px);
   font-size: rem(24px);
   line-height: rem(36px);
   max-width: rem(600px);
+  transition: margin-bottom duration() ease-in-out;
 
   @include breakpoint-after(small) {
     margin-bottom: $description-offset-bottom;
   }
+}
+
+.Album__Description--no-offset {
+  margin-bottom: 0;
 }
 
 .Album__Pictures {
@@ -108,10 +119,16 @@ $description-offset-bottom: rem(90px);
   align-items: flex-end;
   padding: layout-margin();
   overflow-x: scroll;
+  transform: translateY(0%);
+  transition: transform duration() ease-in-out;
 
   @include breakpoint-before(small) {
     display: none;
   }
+}
+
+.Album__Pictures--hidden {
+  transform: translateY(100%);
 }
 
 .Album__Picture {
