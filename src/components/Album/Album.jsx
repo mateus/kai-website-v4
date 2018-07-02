@@ -22,6 +22,7 @@ class Album extends Component {
     this.handleReturn = this.handleReturn.bind(this);
     this.handleClick = this.handleClick.bind(this);
     this.handleMouseMove = this.handleMouseMove.bind(this);
+    this.handleTap = this.handleTap.bind(this);
     this.handleSwipe = this.handleSwipe.bind(this);
     this.swipingLeft = this.swipingLeft.bind(this);
     this.swipingRight = this.swipingRight.bind(this);
@@ -59,6 +60,12 @@ class Album extends Component {
     return e;
   }
 
+  handleTap() {
+    this.setState({
+      hiddenHub: false,
+    });
+  }
+
   swipingLeft() {
     const { selectedImage, selectedImageHistory } = this.state;
 
@@ -70,12 +77,6 @@ class Album extends Component {
         selectedImageHistory,
       });
     }
-  }
-
-  onTap() {
-    this.setState({
-      hiddenHub: false,
-    });
   }
 
   swipingRight() {
@@ -163,6 +164,7 @@ class Album extends Component {
     return (
       <Swipeable
         onSwiped={this.handleSwipe}
+        onTap={this.handleTap}
         onMouseMove={this.handleMouseMove}
         disabled={!active}
         className={classNames('Album__Wrapper', {
