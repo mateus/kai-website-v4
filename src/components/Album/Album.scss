@@ -98,11 +98,8 @@ $description-offset-bottom: rem(90px);
   font-size: rem(24px);
   line-height: rem(36px);
   max-width: rem(600px);
+  margin-bottom: $description-offset-bottom;
   transition: margin-bottom duration() ease-in-out;
-
-  @include breakpoint-after(small) {
-    margin-bottom: $description-offset-bottom;
-  }
 }
 
 .Album__Description--no-offset {
@@ -123,7 +120,7 @@ $description-offset-bottom: rem(90px);
   transition: transform duration() ease-in-out;
 
   @include breakpoint-before(small) {
-    display: none;
+    padding: spacing(loose);
   }
 }
 
