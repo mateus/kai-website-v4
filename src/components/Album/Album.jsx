@@ -217,7 +217,6 @@ class Album extends Component {
                 />
               );
             })}
-            <div className="Album__PictureOffset" />
           </div>
         </div>
         {pictures.map((picture, index) => {
